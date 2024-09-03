@@ -1,20 +1,11 @@
-function getComputerChoice (r,p,s) {
-const r = 1;
-const p = 2;
-const s = 3;
-return Math.random() * (1-3) + min;
-console.log(getComputerChoice);
+function getComputerChoice () {
+    const randomNum = Math.random(); // random number variable between 0 and 1.
+    if (randomNum < 0.33) { 
+        return 'rock';
+    } else if (randomNum < 0.66) {
+        return 'paper';
+    } else {
+        return 'scissors';
+    }
 }
-
-/*
-
-define function and parameters
-create variables for
-    1 = rock
-    2 = paper
-    3 = scissors
-return random math between 1 and 3
-return Math.random() * (max - min) + min;
-
-
-*/
+console.log(getComputerChoice());
