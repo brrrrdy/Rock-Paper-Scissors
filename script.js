@@ -11,7 +11,7 @@ function getComputerChoice () {
 
 
 function getHumanChoice () {
-    const input = prompt('Rock, Paper or Scissors?').toLowerCase();
+    const input = prompt('rock, paper or scissors?').toLowerCase();
     const choices = ['rock', 'paper', 'scissors'];
 
     if (!choices.includes(input)) {
@@ -19,7 +19,7 @@ function getHumanChoice () {
         return;
     }
     const computerChoice = getComputerChoice();
-    alert(`Computer chose: ${computerChoice}`);
+    alert(`computer chose: ${computerChoice}`);
 
     if (input === computerChoice) {
         alert('draw!');     
@@ -28,9 +28,9 @@ function getHumanChoice () {
         (input === 'paper' && computerChoice === 'rock') ||
         (input === 'scissors' && computerChoice === 'paper')
     ) {
-        alert('You win!');
+        alert('you win!');
     } else {
-        alert('Computer wins!');
+        alert('computer wins!');
     }
 }
 
