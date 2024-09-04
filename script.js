@@ -1,5 +1,6 @@
-function getComputerChoice () {
-    const randomNum = Math.random(); // random number variable between 0 and 1.
+// Function to get the computer's choice
+function getComputerChoice() {
+    const randomNum = Math.random();
     if (randomNum < 0.33) { 
         return 'rock';
     } else if (randomNum < 0.66) {
@@ -9,39 +10,70 @@ function getComputerChoice () {
     }
 }
 
-
-function getHumanChoice () {
+// Function to get the human's choice and determine the winner
+function getHumanChoice() {
     const input = prompt('rock, paper or scissors?').toLowerCase();
     const choices = ['rock', 'paper', 'scissors'];
 
     if (!choices.includes(input)) {
-        alert('your choice is invalid');
-        return;
+        alert('Your choice is invalid');
+        return null; // Return null if the choice is invalid
     }
+
     const computerChoice = getComputerChoice();
-    alert(`computer chose: ${computerChoice}`);
+    alert(`Computer chose: ${computerChoice}`);
 
     if (input === computerChoice) {
-        alert('draw!');     
+        alert('Draw!');
+        return 'draw';
     } else if (
         (input === 'rock' && computerChoice === 'scissors') ||
         (input === 'paper' && computerChoice === 'rock') ||
         (input === 'scissors' && computerChoice === 'paper')
     ) {
-        alert('you win!');
+        alert('You win!');
+        return 'human';
     } else {
-        alert('computer wins!');
+        alert('Computer wins!');
+        return 'computer';
     }
 }
 
+// Global variables to track scores
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound (computerChoice, humanChoice) {
+// Function to play a single round and update the scores
+function playRound() {
+    const result = getHumanChoice();
+    if (result === 'human') {
+        humanScore++;
+    } else if (result === 'computer') {
+        computerScore++;
+    }
 
+// Display the current score after each round
+    alert(`Score:\nYou: ${humanScore}\nComputer: ${computerScore}`);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// Function to play the game for multiple rounds
+function playGame() {
+    let rounds = parseInt(prompt("How many rounds do you want to play?"));
 
-playRound(humanSelection, computerSelection);
+// Check if the input is a valid number
+    if (isNaN(rounds) || rounds <= 0) {
+        alert("Please enter a valid number of rounds.");
+        return;
+    }
+
+// Loop through the number of rounds
+    for (let i = 0; i < rounds; i++) {
+        playRound();
+    }
+
+// Display the final score after all rounds
+    alert(`Final Score:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+}
+
+// Start the game
+playGame();
