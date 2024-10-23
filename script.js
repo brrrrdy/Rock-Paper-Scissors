@@ -22,8 +22,6 @@ function getHumanChoice() {
         return null; // remove
     } // remove
     
-    module.exports = { getComputerChoice, getHumanChoice };
-
     const computerChoice = getComputerChoice();
     alert(`Computer chose: ${computerChoice}`);
 
@@ -90,6 +88,7 @@ function playGame() {
 
 playGame();
 
+module.exports = { getComputerChoice, getHumanChoice };
 
 /*
 
