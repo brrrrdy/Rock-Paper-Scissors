@@ -21,6 +21,8 @@ function getHumanChoice() {
         alert('Your choice is invalid'); // remove
         return null; // remove
     } // remove
+    
+    module.exports = { getComputerChoice, getHumanChoice };
 
     const computerChoice = getComputerChoice();
     alert(`Computer chose: ${computerChoice}`);
