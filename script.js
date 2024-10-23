@@ -1,4 +1,4 @@
-// Function to get the computer's choice
+// get the computer's choice
 
 function getComputerChoice() {
     const randomNum = Math.random();
@@ -11,7 +11,7 @@ function getComputerChoice() {
     }
 }
 
-// Function to get the human's choice and determine the winner
+// get the human's choice and determine the winner
 
 function getHumanChoice() {
     const input = prompt('rock, paper or scissors?').toLowerCase();
@@ -41,7 +41,7 @@ function getHumanChoice() {
     }
 }
 
-// Global variables to track scores
+// variables to track scores
 
 let humanScore = 0;
 let computerScore = 0;
@@ -79,11 +79,11 @@ function playGame() {
         playRound();
     }
 
-// Display the final score after all rounds
+// Display final score after all rounds
 
     alert(`Final Score:\nYou: ${humanScore}\nComputer: ${computerScore}`);
 }
 
-// Start the game
+// Start game
 
 playGame();
