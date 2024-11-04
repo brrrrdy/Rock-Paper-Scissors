@@ -1,5 +1,32 @@
-// get the computer's choice
+// variables to track scores
+let humanScore = 0;
+let computerScore = 0;
+let rounds = 0;
+let currentRound = 0;
 
+// Function to start the game
+function startGame() {
+    const roundsInput = document.getElementById("roundsInput").value;
+    rounds = parseInt(roundsInput);
+
+    // Check if the input is a valid number
+    if (isNaN(rounds) || rounds <= 0) {
+        alert("Please enter a valid number of rounds.");
+        return;
+    }
+
+    // Reset scores and round counter
+    humanScore = 0;
+    computerScore = 0;
+    currentRound = 0;
+
+    // Hide input area and show game area
+    document.getElementById("inputArea").style.display = "none";
+    document.getElementById("gameArea").style.display = "block";
+    document.getElementById("gameStatus").textContent = `Round 1 of ${rounds}`;
+}
+
+// Function to get the computer's choice
 function getComputerChoice() {
     const randomNum = Math.random();
     if (randomNum < 0.33) { 
@@ -11,84 +38,50 @@ function getComputerChoice() {
     }
 }
 
-// get the human's choice and determine the winner
-
-function getHumanChoice() {
-    const input = prompt('rock, paper or scissors?').toLowerCase(); // change
-    const choices = ['rock', 'paper', 'scissors'];
-
-    if (!choices.includes(input)) { // remove
-        alert('Your choice is invalid'); // remove
-        return null; // remove
-    } // remove
-    
-    const computerChoice = getComputerChoice();
-    alert(`Computer chose: ${computerChoice}`);
-
-    if (input === computerChoice) {
-        alert('Draw!');
-        return 'draw';
-    } else if (
-        (input === 'rock' && computerChoice === 'scissors') ||
-        (input === 'paper' && computerChoice === 'rock') ||
-        (input === 'scissors' && computerChoice === 'paper')
-    ) {
-        alert('You win!');
-        return 'human';
-    } else {
-        alert('Computer wins!');
-        return 'computer';
-    }
-}
-
-// variables to track scores
-
-let humanScore = 0;
-let computerScore = 0;
-
-// Function to play a single round and update the scores
-
-function playRound() {
-    const result = getHumanChoice();
-    if (result === 'human') {
-        humanScore++;
-    } else if (result === 'computer') {
-        computerScore++;
-    }
-
-// Display the current score after each round
-
-    alert(`Score:\nYou: ${humanScore}\nComputer: ${computerScore}`); // remove
-}
-
-// Function to play the game for multiple rounds
-
-function playGame() {
-    let rounds = parseInt(prompt("How many rounds do you want to play?"));
-
-// Check if the input is a valid number
-
-    if (isNaN(rounds) || rounds <= 0) {
-        alert("Please enter a valid number of rounds.");
+// Function to play a single round
+function playRound(humanChoice) {
+    if (currentRound >= rounds) {
+        document.getElementById("gameOverMessage").textContent = "Game over. Please start a new game.";
         return;
     }
 
-// Loop through the number of rounds
+    const computerChoice = getComputerChoice();
+    let result = '';
 
-    for (let i = 0; i < rounds; i++) {
-        playRound();
+    if (humanChoice === computerChoice) {
+        result = "Draw!";
+    } else if (
+        (humanChoice === 'rock' && computerChoice === 'scissors') ||
+        (humanChoice === 'paper' && computerChoice === 'rock') ||
+        (humanChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        result = "You win this round!";
+        humanScore++;
+    } else {
+        result = "Computer wins this round!";
+        computerScore++;
     }
 
-// Display final score after all rounds
+// Update the current round
+    currentRound++;
 
-    alert(`Final Score:\nYou: ${humanScore}\nComputer: ${computerScore}`);
+// Display round result and current score
+    document.getElementById("gameStatus").textContent = `Round ${currentRound} of ${rounds}: ${result}\nScore: You ${humanScore} - ${computerScore} Computer`;
+
+// Check if the game has ended
+if (currentRound === rounds) {
+    const finalResult = humanScore > computerScore 
+        ? "You win the game!" : humanScore < computerScore ? "Computer wins the game!" : "It's a draw!";
+
+// Display the final score and result on the page
+    document.getElementById("gameStatus").textContent = 
+        `Final Score:\nYou: ${humanScore} - Computer: ${computerScore}\n${finalResult}`;
+    }
 }
 
-// Start game
-
-playGame();
-
-module.exports = { getComputerChoice, getHumanChoice };
+function resetGame() {
+    location.reload();
+}
 
 /*
 

@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>rock paper scissors</title>
-    <button id="rock">rock</button>
-    <button id="paper">paper</button>
-    <button id="scissors">scissors</button>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <h1>Rock Paper Scissors Game</h1>
 
+    <!-- input area for number of rounds -->
+    <div id="inputArea">
+        <label for="roundsInput">Enter number of rounds:</label>
+        <input type="number" id="roundsInput" min="1">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- area for playing rounds -->
+    <div id="gameArea" style="display:none;">
+        <button id="rock" onclick="playRound('rock')">Rock</button>
+        <button id="paper" onclick="playRound('paper')">Paper</button>
+        <button id="scissors" onclick="playRound('scissors')">Scissors</button>
+        <p id="gameStatus"></p>
+        <p id="gameOverMessage" style="color: red;"></p>
+
+        <!-- new Start New Game button -->
+        <button id="newGameButton" onclick="resetGame()" style="display:box;">Start New Game</button> 
+    </div>
 </body>
 </html>
