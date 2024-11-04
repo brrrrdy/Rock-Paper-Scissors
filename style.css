@@ -1,0 +1,41 @@
+ * {
+    border: 1px solid red;
+} 
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px;
+}
+
+.header-title {
+    font-size: 50px;
+    color: orangered;
+}
+
+.input-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

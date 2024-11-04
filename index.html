@@ -8,25 +8,32 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors Game</h1>
+    <div class="header">
+        <div class="header-title">Rock Paper Scissors</div>
+    </div>
 
     <!-- input area for number of rounds -->
-    <div id="inputArea">
-        <label for="roundsInput">Enter number of rounds:</label>
-        <input type="number" id="roundsInput" min="1">
-        <button onclick="startGame()">Start Game</button>
+    <div class="input-area">
+        <div id="inputArea">
+            <label for="roundsInput">Enter number of rounds:</label>
+            <input type="number" id="roundsInput" min="1">
+            <button onclick="startGame()">Start Game</button>
+        </div>
     </div>
 
     <!-- area for playing rounds -->
+    <div class="game-area">
     <div id="gameArea" style="display:none;">
         <button id="rock" onclick="playRound('rock')">Rock</button>
         <button id="paper" onclick="playRound('paper')">Paper</button>
         <button id="scissors" onclick="playRound('scissors')">Scissors</button>
         <p id="gameStatus"></p>
         <p id="gameOverMessage" style="color: red;"></p>
+        
 
         <!-- new Start New Game button -->
         <button id="newGameButton" onclick="resetGame()" style="display:box;">Start New Game</button> 
     </div>
+</div>
 </body>
 </html>

@@ -82,9 +82,6 @@ if (currentRound === rounds) {
 function resetGame() {
     location.reload();
 }
-
-module.exports = { startGame, getComputerChoice, playRound, resetGame };
-
 /*
 
 REQUIREMENT:
