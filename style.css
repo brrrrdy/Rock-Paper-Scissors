@@ -1,6 +1,6 @@
- * {
+ /* * {
     border: 1px solid red;
-} 
+} */
 
 *,
 *::before,
@@ -13,6 +13,7 @@ body {
     font-family: Roboto, sans-serif;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .header {
@@ -36,6 +37,13 @@ body {
 
 .game-area {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.game-area button {
+    margin: 20px;
 }
