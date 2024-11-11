@@ -23,29 +23,27 @@
 
     <!-- area for playing rounds -->
     <div class="game-area">
-        <div id="gameArea" style="display:none;">
-            <div class="choice" onclick="playRound('rock')">
-                <img src="images/rock-geodude.png" alt="Rock" class="choice-img">
+        <div id="gameArea" style="display: none;">
+            <div class="choices-container">
+                <div class="choice" onclick="playRound('rock')">
+                    <img src="images/rock-geodude.png" alt="Rock" class="choice-img geodude-img">
+                </div>
+                <div class="choice" onclick="playRound('paper')">
+                    <img src="images/paper-pidgey.png" alt="Paper" class="choice-img">
+                </div>
+                <div class="choice" onclick="playRound('scissors')">
+                    <img src="images/scissors-growlithe.png" alt="Scissors" class="choice-img">
+                </div>
             </div>
-            <div class="choice" onclick="playRound('paper')">
-                <img src="images/paper-pidgey.png" alt="Paper" class="choice-img">
-            </div>
-            <div class="choice" onclick="playRound('scissors')">
-                <img src="images/scissors-growlithe.png" alt="Scissors" class="choice-img">
-            </div>
-            
-            
-            <!-- <button id="rock" onclick="playRound('rock')">Rock</button>
-            <button id="paper" onclick="playRound('paper')">Paper</button>
-            <button id="scissors" onclick="playRound('scissors')">Scissors</button> -->
-
-
             <p id="gameStatus"></p>
-            <p id="gameOverMessage" style="color: red;"></p>
+            <p id="gameOverMessage"></p>
+            
+            <button id="newGameButton" onclick="resetGame()" style="display: box;">Start New Game</button>
+        </div>
+    </div>
         
 
         <!-- new Start New Game button -->
-            <button id="newGameButton" onclick="resetGame()" style="display:box;">Start New Game</button> 
         </div>
     </div>
 </body>
