@@ -2,12 +2,12 @@
 
 ## https://brrrrdy.github.io/Rock-Paper-Scissors/
 
-### Sprint 1
+### Sprint 1 ✅
 
 - Develop basic functionality.
 - Implement a basic UI.
 
-### Sprint 2 
+### Sprint 2 ⌚
 
 - Overhaul UI
 - Integrate with projects nav sidebar
